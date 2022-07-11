@@ -1,0 +1,8 @@
+.env
+/TensorFlow
+/venv
+workspace.code-workspace
+.vscode
+/other
+/food_database
+__pycache__
