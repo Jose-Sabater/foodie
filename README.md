@@ -1,6 +1,6 @@
 # Foodie
 
-![plot](./assets/foodie.jpg)
+![plot](./assets/foodie.JPG)
 ## Description
 
 In this project I am to create a small app that can keep track of how many calories you are eating just by including  
