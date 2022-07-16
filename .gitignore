@@ -1,6 +1,7 @@
 .env
 /TensorFlow
 /venv
+*venvfront
 workspace.code-workspace
 .vscode
 /other
