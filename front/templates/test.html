@@ -1,37 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1> Hello </h1>
-    <script type="text/javascript">
-      // STORE TOKEN INTO LOCALSTORAGE
-      localStorage.setItem("token", "{{token}}");
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"> 
+        let username = localStorage.getItem('uname');
+        let psw = localStorage.getItem('psw');
+        alert("username: "+username +" password: "+psw);
     </script>
-  </body>
+
+</head>
+<body>
+    <p>
+        <var id="test"></var>
+    </p>
+
+</body>
 </html>
-
-
-<!-- localStorage lives on the browser side of things. The server can't access it directly.
-
-You'll need to send the token from the client to the server when the user presses the logout button in your app.
-
-document.getElementById('logout').onclick = function logout() {
-    let token = localStorage.getItem('token')
-
-    // use your favourite AJAX lib to send the token to the server as e.g. JSON
-
-    // redirect user to e.g. landing page of app if logout successul, show error otherwise
-}
-
-Your view will receive the token and do something useful with it.
-
-@app.route("/logout")
-def logout():
-    token = request.get_json()['token']
-
-    # log the user out
-
-    return jsonify({'status':'success'}) -->

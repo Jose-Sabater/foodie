@@ -14,16 +14,23 @@
     </script>
   </head>
   <body>
-
+    <div id="header"></div>
     <form id="form" method="POST" name="form" >
       <input type="hidden" id="thetoken" name="thetoken" >
       <!-- <button type="submit" ></button> -->
-      <button type="button" id="send" onclick="test_function()" Post!>Get meals </button>
+      <button type="button" id="send" onclick="test_function()" Post!>Update </button>
     </form>
 
-    
-    <h1> Hello press the button to get all the meals </h1>
-    
+    <h1> Here are your meals </h1>
+    <ul>
+      {% for meal in meals %}
+          <li>
+              
+            The tasty meal of: {{meal.meal}}, calories consumed:{{meal.calories_consumed}}
+              
+          </li>
+      {% endfor %}
+  </ul>    
 
 
   </body>
