@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      // Get Token
+      function test_function(){
+        let token = localStorage.getItem('token');
+        // alert(token);
+        document.getElementById("thetoken").value = token;
+        document.getElementById("form").submit();
+      }
+    </script>
+  </head>
+  <body>
+
+    <form id="form" method="POST" name="form" >
+      <input type="hidden" id="thetoken" name="thetoken" >
+      <!-- <button type="submit" ></button> -->
+      <button type="button" id="send" onclick="test_function()" Post!>Get meals </button>
+    </form>
+
+    
+    <h1> Hello press the button to get all the meals </h1>
+    
+
+
+  </body>
+</html>
