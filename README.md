@@ -9,9 +9,7 @@ your nutrition goals.
 
 It will then give you recommendation through statistical analytics.
 
-Some visualizations will also be provided
-
-This project has been mostly created as a showcase for Fastapi/Postresql
+This project has been mostly created as a showcase for Fastapi/Postresql.
 
 ## Modules and Languages
 
@@ -42,4 +40,5 @@ The rights to this project are owned by the author
 
 ## Authors and acknowledgment
 José María Sabater
+
 jose.sabater.iglesias@gmail.com
