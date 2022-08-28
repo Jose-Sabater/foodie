@@ -1,29 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <script type="text/javascript">
-        // Get Token
-        function test_function(){
-          let token = localStorage.getItem('token');
-          // alert(token);
-          document.getElementById("thetoken").value = token;
-          document.getElementById("form").submit();
-        }
-      </script>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="{{url_for('static', filename='header.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='general.css') }}">
+    <title>Login Page</title>
   </head>
   <body>
-    <h1> Successfully logged in {{token}} </h1>
-    <form id="form" method="POST" name="form" >
-        <input type="hidden" id="thetoken" name="thetoken" >
-        <!-- <button type="submit" ></button> -->
-        <button type="button" id="send" onclick="test_function()" Post!>Get meals </button>
+    <header class="header">
+      <div class="left-section">
+        <img class="hamburger-menu" src="/static/icons/hamburger-menu.svg">
+        <img class="foodie-logo" src="/static/images/foodie.svg">
+      </div>
+      <div class="middle-section">
+        <input class="search-bar" type="text" placeholder="Search">
+        <button class="search-button">
+          <img class="search-icon" src="/static/icons/search.svg">
+          <div class="tooltip">Search</div>
+        </button>
+        <!-- Put position absolute inside position relative -->
+        <button class="voice-search-button">
+          <img class="voice-search-icon" src="/static/icons/voice-search-icon.svg">
+          <div class="tooltip">Search with your voice</div>
+        </button>
+      </div>
+      <div class="right-section">
+        <div class="upload-icon-container">
+          <img class="upload-icon" src="icons/upload.svg">
+          <div class="tooltip">Create</div>
+        </div>
+        <img class="youtube-apps-icon" src="icons/youtube-apps.svg">
+        <div class="notifications-icon-container">
+          <img class="notifications-icon" src="icons/notifications.svg">
+          <div class="notifications-count">3</div>
+        </div>
+        <img class="current-user-picture" src="channel-pictures/my-channel.jpeg">
+      </div>
+    </header>
+    <h1>A block with your latest stats</h1>
+    <h2>Graph with distribution of nutrients, list of last meals</h2>
+    <h1 id='message'> Succesfully logged in</h1>
+    <h1> 
+      What would you like to do?
+    </h1>
+    <form id="meal-form" method="POST" name="meal-form" >
+        <input type="hidden" name="meal-token">
+        <button type="button" onclick="submit(`meal`)" Post!>Meal </button>
+    </form>
+
+    <form id="recipes-form" method="POST" name="form" >
+      <input type="hidden" name="recipes-token" >
+      <button type="button" onclick="submit()" Post!>Recipes </button>
+    </form>
+
+    <form id="stats-form" method="POST" name="form" >
+      <input type="hidden"  name="stats-token" >
+      <button type="button" onclick="submit()" Post!>Stats </button>
     </form>
 
     <script type="text/javascript">
       // STORE TOKEN INTO LOCALSTORAGE
       localStorage.setItem("token", "{{token}}");
+    </script>
+
+    <script>
+      let username = localStorage.getItem('uname');
+    </script>
+
+    <script>
+
+          document.getElementById('message').textContent = "Successfully logged in " + username ;
+          
+    </script>
+    <script type="text/javascript">
+      // Get Token
+      function submit(category){
+        let token = localStorage.getItem('token');
+        // alert(token);
+        document.getElementById(category+"-token").value = token;
+        console.log("hoi")
+        document.getElementById(category+"-form").submit();
+      }
     </script>
   </body>
 </html>

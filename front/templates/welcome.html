@@ -14,7 +14,7 @@
 </head>
 <body>
     <div id="header">
-        <img id="banana" src="/static/bananafood.jpg"> 
+        <img id="banana" src="/static/images/bananafood.jpg"> 
         <button id="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
         <button id="register" onclick="document.getElementById('id02').style.display='block'"style="width:auto;">Sign Up</button>
     </div>
@@ -27,23 +27,23 @@
 
     <div id="id01" class="modal">
     
-    <form class="modal-content animate" method="post" id="login-form">
+    <form class="modal-content animate" method="post" id="login-form" name="login-form">
         <div class="imgcontainer">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <img src="static/strong.png" alt="Avatar" class="avatar">
-        </div>
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <img src="/static/images/strong.png" alt="Avatar" class="avatar">
+        </div> 
 
         <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" id="login-uname" required>
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" id="login-uname" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" id="login-psw" required>
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="login-psw" required>
             
-        <button type="submit" onclick="store_userinfo()">Login</button>
-        <label>
+          <button type="submit" onclick="store_userinfo()">Login</button>
+          <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
+          </label>
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
@@ -92,7 +92,7 @@
     
 
 <script>
-var modal1 = document.getElementById('id01');
+let modal1 = document.getElementById('id01');
 window.onclick = function(event) {
     if (event.target == modal1) {
         modal1.style.display = "none";
@@ -102,7 +102,7 @@ window.onclick = function(event) {
 
 <script>
 // Get the modal
-var modal2 = document.getElementById('id02');
+let modal2 = document.getElementById('id02');
 // When the user clicks anywhere outside of the modal, close it
 
 window.onclick = function(event) {

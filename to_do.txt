@@ -3,4 +3,11 @@ possibility to store image of your meal
 analyze picture for calories -- Deep Learning
 possibility to write or copy the recipe of your meal
 paste a recipe and calculate calories -- maybe use NLP
+browse recipes
+recommended meals for the week
+cooking time
+long term connect to live pricing from supermarkets
 statistics - Visualization,Forecasting
+
+
+for phone flutter or kivy
