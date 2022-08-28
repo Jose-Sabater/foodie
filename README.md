@@ -3,13 +3,23 @@
 ![plot](./assets/foodie.JPG)
 ## Description
 
-In this project I am to create a small app that can keep track of how many calories you are eating just by including  
-information about your meal.  
-It will then give you recommendation through statistical analytics on how to reach your goals.  
+In this project I aim to create a small app that can give you information about how healthy you are eating.
+It will offer you different options on what recipes to cook, what you have been eating in the past and how you can achieve
+your nutrition goals.
+
+It will then give you recommendation through statistical analytics.
 
 Some visualizations will also be provided
 
 This project has been mostly created as a showcase for Fastapi/Postresql
+
+## Modules and Languages
+
+Backend: Postgresql, Python -- SQLalchemy, fastapi , pydantic
+
+
+Frontend: HTML, CSS, JavaScript, Python -- Flask
+
 
 
 ## Roadmap
@@ -20,9 +30,16 @@ This project has been mostly created as a showcase for Fastapi/Postresql
 
 - [ ] Flask frontend
 
+- [ ] Containarize and deploy
+
 - [ ] Computer Vision camera module
 
 - [ ] Analytics
 
+## License
+
+The rights to this project are owned by the author
+
 ## Authors and acknowledgment
 José María Sabater
+jose.sabater.iglesias@gmail.com
