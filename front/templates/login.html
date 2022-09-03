@@ -2,8 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="{{url_for('static', filename='header.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='general.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='meal.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
     <title>Login Page</title>
   </head>
   <body>
@@ -13,7 +16,7 @@
         <img class="foodie-logo" src="/static/images/foodie.svg">
       </div>
       <div class="middle-section">
-        <input class="search-bar" type="text" placeholder="Search">
+        <input class="search-bar" type="text" placeholder="Search for your meals">
         <button class="search-button">
           <img class="search-icon" src="/static/icons/search.svg">
           <div class="tooltip">Search</div>
@@ -25,62 +28,117 @@
         </button>
       </div>
       <div class="right-section">
-        <div class="upload-icon-container">
-          <img class="upload-icon" src="icons/upload.svg">
-          <div class="tooltip">Create</div>
+        <div> <p id="uname">username </p>
+
         </div>
-        <img class="youtube-apps-icon" src="icons/youtube-apps.svg">
-        <div class="notifications-icon-container">
-          <img class="notifications-icon" src="icons/notifications.svg">
-          <div class="notifications-count">3</div>
-        </div>
-        <img class="current-user-picture" src="channel-pictures/my-channel.jpeg">
+
+        <img class="current-user-picture" src="/static/images/jose_maria.jpg">
       </div>
     </header>
-    <h1>A block with your latest stats</h1>
-    <h2>Graph with distribution of nutrients, list of last meals</h2>
-    <h1 id='message'> Succesfully logged in</h1>
-    <h1> 
-      What would you like to do?
-    </h1>
-    <form id="meal-form" method="POST" name="meal-form" >
-        <input type="hidden" name="meal-token">
-        <button type="button" onclick="submit(`meal`)" Post!>Meal </button>
-    </form>
 
-    <form id="recipes-form" method="POST" name="form" >
-      <input type="hidden" name="recipes-token" >
-      <button type="button" onclick="submit()" Post!>Recipes </button>
-    </form>
+    <main>
 
-    <form id="stats-form" method="POST" name="form" >
-      <input type="hidden"  name="stats-token" >
-      <button type="button" onclick="submit()" Post!>Stats </button>
-    </form>
+      <section class="user-summary-section"> 
+        
+        <div class="meals-top-selection-menu" >
+          <div class="selection-menu-option">
+            <form id="meal-form" method="POST" name="meal-form" >
+              <input type="hidden" name="meal-token">
+              <button class="option-button" type="button" onclick="submit('meal')" Post!> Your Meal </button>
+            </form>
+          </div>
+
+          <div class="selection-menu-option">
+            <form id="meal-form" method="POST" name="meal-form" >
+              <input type="hidden" name="meal-token">
+              <button class="option-button" type="button" onclick="submit('meal')" Post!> Stats </button>
+            </form>
+          </div>
+
+          <div class="selection-menu-option">
+            <form id="meal-form" method="POST" name="meal-form" >
+              <input type="hidden" name="meal-token">
+              <button class="option-button" type="button" onclick="submit('meal')" Post!> Recipes </button>
+            </form>
+          </div>
+        
+        </div>
+        <div class="meals-top-sentence">Your latest meals</div>
+        <div class="meals-grid">
+          <div class="meal-card">
+            <div class="thumbnail-row">
+              <button class="thumbnail-button" onclick ="submit()">
+                <image class="meal-thumbnail" src="/static/images/hamburger.jpg" />
+              </button>
+              <div class="text-block">
+                <h4>{{meal.meal}}</h4>
+                <p>{{meal.calories_consumed}} calories</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-card">
+            <div class="thumbnail-row">
+              <button class="thumbnail-button" onclick ="submit()">
+                <image class="meal-thumbnail" src="/static/images/hamburger.jpg" />
+              </button>
+              <div class="text-block">
+                <h4>{{meal.meal}}</h4>
+                <p>{{meal.calories_consumed}} calories</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="meal-card">
+            <div class="thumbnail-row">
+              <button class="thumbnail-button" onclick ="submit()">
+                <image class="meal-thumbnail" src="/static/images/hamburger.jpg" />
+              </button>
+              <div class="text-block">
+                <h4>{{meal.meal}}</h4>
+                <p>{{meal.calories_consumed}} calories</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+      <section class="random-recipe-section">
+        <div class="recipe-text">Random Recipe of the week</div>
+        <div class="recipe-image-row">
+          <button class="recipe-button" onclick ="submit()">
+            <image id="recipe-thumbnail" class="recipe-thumbnail" src="/static/images/fondue.jpg" />
+          <div class="recipe-text-block">
+            <h4>{{meal.meal}}</h4>
+            <p>{{meal.calories_consumed}} calories</p>
+          </div>
+          </button> 
+
+        </div>
+      </section>
+
+    </main>
 
     <script type="text/javascript">
-      // STORE TOKEN INTO LOCALSTORAGE
       localStorage.setItem("token", "{{token}}");
     </script>
-
+    <script src="/static/js/utils.js"></script>
     <script>
-      let username = localStorage.getItem('uname');
-    </script>
-
-    <script>
-
-          document.getElementById('message').textContent = "Successfully logged in " + username ;
-          
+          document.getElementById('recipe-thumbnail').textContent = "Recipe Title " + username;      
     </script>
     <script type="text/javascript">
-      // Get Token
-      function submit(category){
-        let token = localStorage.getItem('token');
+      
+      function submit_form(category){
+        // token=get_token();
         // alert(token);
         document.getElementById(category+"-token").value = token;
-        console.log("hoi")
         document.getElementById(category+"-form").submit();
       }
     </script>
+    <script>
+      showmessage("uname", username)
+    </script>
+    
   </body>
 </html>

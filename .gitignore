@@ -8,3 +8,4 @@ workspace.code-workspace
 /food_database
 __pycache__
 roadmap.txt
+.gitignore

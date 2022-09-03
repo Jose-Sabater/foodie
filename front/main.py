@@ -31,17 +31,20 @@ def welcome():
 
 
 @app.route("/successful/<token>",methods=["GET","POST"])
-def successful(token):
+def successful(token):    
+    headers={'authorization':"Bearer "+ token}
     login_url= settings.back_meals
+    last_meal_url = settings.back_last_meal
+    r = requests.get(last_meal_url,headers=headers)
+    meal = r.json()
     if request.method == 'POST' and 'meal-token' in request.form:
-        token = request.form.get('meal-token')
-        headers={'authorization':"Bearer "+ token}
         print(headers)
+        token = request.form.get('meal-token')
         response = requests.get(login_url,headers=headers)
         meals = response.json()
         print(meals)
         return redirect(url_for('get_meals'))
-    return render_template("login.html",token=token)
+    return render_template("login.html",token=token, meal=meal)
 
 
 @app.route("/meals",methods=["GET","POST"])

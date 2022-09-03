@@ -45,9 +45,6 @@ def get_daterange(date_range : schemas.Daterange, db: Session = Depends(get_db))
     meal_query = db.query(models.Meal).filter(models.Meal.date > date_range.start_date,
                         models.Meal.date < date_range.end_date ).all()
     if not meal_query:
-    # one way to do it:
-    # response.status_code = status.HTTP_404_NOT_FOUND
-    # return {'message': f"{id} was not found"}
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                         detail=f"no meals between selected dates")
     return  meal_query
@@ -57,21 +54,22 @@ def get_daterange(date_range : schemas.Daterange, db: Session = Depends(get_db))
 def get_meals(db: Session = Depends(get_db), current_user:int =Depends(oath2.get_current_user)):
     meals=db.query(models.Meal).filter(models.Meal.user_id==current_user.id).all()
     if not meals:
-    # one way to do it:
-    # response.status_code = status.HTTP_404_NOT_FOUND
-    # return {'message': f"{id} was not found"}
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                        detail=f"no meals for selected user")
+    return meals
+
+@router.get("/userlastmeal", response_model=schemas.Meal)
+def get_meals(db: Session = Depends(get_db), current_user:int =Depends(oath2.get_current_user)):
+    meals=db.query(models.Meal).filter(models.Meal.user_id==current_user.id).first()
+    if not meals:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                         detail=f"no meals for selected user")
     return meals
 
 @router.get("/{id}",response_model=schemas.Meal) #id is a path parameter
 def get_meal(id: int, db: Session = Depends(get_db)):
-    #look for first instance, could also do .all
     meal = db.query(models.Meal).filter(models.Meal.meal_id==id).first()   
     if not meal:
-        # one way to do it:
-        # response.status_code = status.HTTP_404_NOT_FOUND
-        # return {'message': f"{id} was not found"}
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"meal with id {id} was not found")
     return  meal
@@ -83,11 +81,6 @@ def delete_meal(id : int, db: Session = Depends(get_db)):
     if meal == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                              detail=f"meal with id {id} does not exist")
-    
-    # if meal.owner_id != current_user.id:
-    #     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
-    #                          detail=f"{id} is not authorized to perform action")
-
     meal_query.delete(synchronize_session=False)
     db.commit()
     return Response(status_code=status.HTTP_204_NO_CONTENT)
@@ -101,11 +94,6 @@ def update_meal(id:int, updated_meal: schemas.MealCreate,db: Session = Depends(g
     if meal == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                              detail=f"Meal with id {id} does not exist")
-
-    # if meal.owner_id != current_user.id:
-    #     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
-    #                          detail=f"{id} is not authorized to perform action")
-
     meal_query.update(updated_meal.dict(),synchronize_session=False)
     db.commit()
     return  meal_query.first()
