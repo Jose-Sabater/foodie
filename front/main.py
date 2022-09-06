@@ -37,6 +37,9 @@ def successful(token):
     last_meal_url = settings.back_last_meal
     r = requests.get(last_meal_url,headers=headers)
     meal = r.json()
+    meal1 = meal[0]
+    meal2 = meal[1]
+    meal3 = meal[2]
     if request.method == 'POST' and 'meal-token' in request.form:
         print(headers)
         token = request.form.get('meal-token')
@@ -44,7 +47,7 @@ def successful(token):
         meals = response.json()
         print(meals)
         return redirect(url_for('get_meals'))
-    return render_template("login.html",token=token, meal=meal)
+    return render_template("login.html",token=token, meal1=meal1,meal2=meal2, meal3=meal3 )
 
 
 @app.route("/meals",methods=["GET","POST"])
@@ -63,7 +66,7 @@ def get_meals():
 
 @app.route("/test",methods=["GET","POST"])
 def test():
-
-    return render_template('test.html')
+    dict_test = {"key1":10, "k2":'hello'}
+    return render_template('test.html',text_lists=dict_test)
 
 
