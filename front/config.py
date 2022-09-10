@@ -4,6 +4,7 @@ class Settings(BaseSettings):
     back_login : str 
     back_meals : str
     back_last_meal :str
+    flask_secret_key: str
 
     class Config:
         env_file= ".env"

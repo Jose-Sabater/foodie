@@ -12,7 +12,7 @@ import requests
 login_url="http://www.themealdb.com/api/json/v1/1/random.php"
 response = requests.get(login_url)
 meals = response.json()
-arrabiata = meals['meals']
+random_meal = meals['meals'][0]
 my_list = list(meals.keys())
-print(arrabiata)
-print(arrabiata[0]['strCategory'])
+print("random meal:", random_meal)
+# print(arrabiata[0]['strCategory'])

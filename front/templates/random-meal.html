@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='header.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='random-meal.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="left-section">
+            <img class="hamburger-menu" src="/static/icons/hamburger-menu.svg">
+            <button class ='home-button' id = 'home-button' onclick="go_home()">
+            <img class="foodie-logo" src="/static/images/foodie.svg">
+            </button>
+        </div>
+        <div class="middle-section">
+            <input class="search-bar" type="text" placeholder="Search for your meals">
+            <button class="search-button">
+            <img class="search-icon" src="/static/icons/search.svg">
+            <div class="tooltip">Search</div>
+            </button>
+            <!-- Put position absolute inside position relative -->
+            <button class="voice-search-button">
+            <img class="voice-search-icon" src="/static/icons/voice-search-icon.svg">
+            <div class="tooltip">Search with your voice</div>
+            </button>
+        </div>
+        <div class="right-section">
+            <div> <p id="uname">username </p>
+
+            </div>
+
+            <img class="current-user-picture" src="/static/images/jose_maria.jpg">
+        </div>
+    </header>
+
+    <section class="main-random-content">
+        <div class="content-grid">
+            <div class="thumbnaildiv">
+                <img class="thumbnail" src={{my_meal.imgpath}}>
+            </div>
+            <div class="contentdiv">
+                <h1>{{my_meal.title}}</h1>
+                <h2>{{my_meal.category}}</h2>
+                <h2>{{my_meal.area}}</h2>
+                <h3>{{my_meal.instructions}}</h3>
+                <p><a href={{my_meal.youtube}} target="_blank">Watch the recipe in youtube</a></p>
+            </div>
+        </div>
+        
+
+    </section>  
+    <script src="/static/js/utils.js"></script>
+</body>
+</html>

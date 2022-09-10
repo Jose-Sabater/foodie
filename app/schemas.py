@@ -24,6 +24,7 @@ class MealBase(BaseModel):
 class Meal(MealBase):
     calories_consumed: float
     meal_id:int
+    date:datetime
 
     class Config:
         orm_mode=True

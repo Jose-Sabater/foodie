@@ -3,37 +3,80 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script type="text/javascript">
-      // Get Token
-      function test_function(){
-        let token = localStorage.getItem('token');
-        // alert(token);
-        document.getElementById("thetoken").value = token;
-        document.getElementById("form").submit();
-      }
-    </script>
+    <link rel="stylesheet" href="{{url_for('static', filename='usermeals.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='header.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='general.css') }}">
+    
   </head>
   <body>
-    <div id="header"></div>
     <form id="form" method="POST" name="form" >
       <input type="hidden" id="thetoken" name="thetoken" >
-      <!-- <button type="submit" ></button> -->
-      <button type="button" id="send" onclick="test_function()" Post!>Update </button>
     </form>
-    <form>
-      <input type="button" value="Go back" onclick="history.back()">
-     </form>
-    <h1> Here are your meals </h1>
-    <ul>
+    <header class="header">
+      <div class="left-section">
+        <img class="hamburger-menu" src="/static/icons/hamburger-menu.svg">
+        <button class ='home-button' id = 'home-button' onclick="go_home()">
+          <img class="foodie-logo" src="/static/images/foodie.svg">
+        </button>
+      </div>
+      <div class="middle-section">
+        <input class="search-bar" type="text" placeholder="Search for your meals">
+        <button class="search-button">
+          <img class="search-icon" src="/static/icons/search.svg">
+          <div class="tooltip">Search</div>
+        </button>
+        <!-- Put position absolute inside position relative -->
+        <button class="voice-search-button">
+          <img class="voice-search-icon" src="/static/icons/voice-search-icon.svg">
+          <div class="tooltip">Search with your voice</div>
+        </button>
+      </div>
+      <div class="right-section">
+        <div> <p id="uname">username </p>
+
+        </div>
+
+        <img class="current-user-picture" src="/static/images/jose_maria.jpg">
+      </div>
+    </header>
+
+
+    <section class="main-content">
+
+    <h1> Here are your meals </h1> 
       {% for meal in meals %}
-          <li>
-              
-            The tasty meal of: {{meal.meal}}, calories consumed:{{meal.calories_consumed}}
-              
-          </li>
+      
+      <div class="meal-row">
+        <div class="image-section">
+          <img class="yourmeal-thumbnail" id="yourmeal-thumbnail" src={{meal.imgpath}}>
+        </div>
+        <div class="meal-info-section">
+          <div class="your-meal">
+            <h4>Your meal:{{meal.meal}}</h4>
+          </div>
+          <div class="meal-date">
+            <p>Date of meal: {{meal.date}}</p>
+          </div>                   
+        </div>
+        <div class="meal-stats-section">
+          <p>Calories Consumed:</p>
+          <p>{{meal.calories_consumed}}</p>
+        </div>
+      </div>        
       {% endfor %}
-  </ul>    
+
+  </section>  
 
 
-  </body>
+  <script src="/static/js/utils.js"></script>
+  <script>
+    function go_home(){
+      location.replace("/successful/"+token)
+    }
+  </script>
+  <script>
+    function image_path(food){
+      document.getElementById('yourmeal-thumbnail').src = "static/images/" + food + ".jpg"
+    }
+  </script>
 </html>

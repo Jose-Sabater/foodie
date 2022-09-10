@@ -52,7 +52,7 @@ def get_daterange(date_range : schemas.Daterange, db: Session = Depends(get_db))
 @router.get("/usermeals", response_model=List[schemas.Meal])
 # @router.get("/",response_model=List[schemas.meal]) #list is from typing to put all meal into a schema
 def get_meals(db: Session = Depends(get_db), current_user:int =Depends(oath2.get_current_user)):
-    meals=db.query(models.Meal).filter(models.Meal.user_id==current_user.id).all()
+    meals=db.query(models.Meal).filter(models.Meal.user_id==current_user.id).order_by(models.Meal.date.desc()).all()
     if not meals:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                         detail=f"no meals for selected user")

@@ -16,6 +16,14 @@ console.log("Hello");
 function showmessage(id,message){
   document.getElementById(id).textContent = message;
 }
+function go_home(){
+  location.replace("/successful/"+token)
+};
+
+function go_random_recipe(){
+  location.replace("/random-meal")
+};
 
 
+showmessage("uname", username);
 

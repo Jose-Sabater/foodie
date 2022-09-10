@@ -27,7 +27,11 @@
   margin-left: 24px;
   margin-right: 24px;
 }
-
+.home-button{
+  all: unset;
+  cursor: pointer;
+  }
+  
 .foodie-logo {
   height: 70px;
 }

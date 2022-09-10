@@ -5,11 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript"> 
-        let username = localStorage.getItem('uname');
-        let psw = localStorage.getItem('psw');
-        alert("username: "+username +" password: "+psw);
-    </script>
+    <link rel="stylesheet" href="{{url_for('static', filename='test.css') }}">
 
 </head>
 <body>
@@ -18,9 +14,9 @@
     </p>
 
 <script src="static/js/utils.js"> </script>
-<script>
+<!-- <script>
     let tp_data = {{text_lists | tojson }};
     console.log(tp_data.key1)
-</script>
+</script> -->
 </body>
 </html>
