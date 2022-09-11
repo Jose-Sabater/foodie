@@ -18,7 +18,11 @@ Backend: Postgresql, Python -- SQLalchemy, fastapi , pydantic
 
 Frontend: HTML, CSS, JavaScript, Python -- Flask
 
+## How to use
 
+Try Backend API at:
+
+Frontend at
 
 ## Roadmap
 
@@ -26,9 +30,13 @@ Frontend: HTML, CSS, JavaScript, Python -- Flask
 
 - [x] JWT authentication enabled
 
-- [ ] Flask frontend
+- [x] Full Backend API deployed
 
-- [ ] Containarize and deploy
+- [x] Flask frontend
+
+- [x] Deployed in ubuntu machine
+
+- [ ] Containarize
 
 - [ ] Computer Vision camera module
 
