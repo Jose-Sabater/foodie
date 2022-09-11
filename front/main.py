@@ -23,6 +23,7 @@ def welcome():
         user_info={'username': username,'password': password}
         print("sending request")
         response = requests.post(LOGIN_URL, data=user_info, headers=headers)
+        print(response.status_code)
         token_info = response.json()
         access_token = token_info['access_token']
         token_type=token_info['token_type']
