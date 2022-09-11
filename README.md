@@ -13,10 +13,11 @@ This project has been mostly created as a showcase for Fastapi/Postresql.
 
 ## Modules and Languages
 
-Backend: Postgresql, Python -- SQLalchemy, fastapi , pydantic
+Backend: Postgresql, Python -- SQLalchemy, fastapi , pydantic  
 
+Frontend: HTML, CSS, JavaScript, Python -- Flask  
 
-Frontend: HTML, CSS, JavaScript, Python -- Flask
+Deployed on Ubuntu machine at DigitalOcean, with NGINX and Gunicorn 
 
 ## How to use
 
