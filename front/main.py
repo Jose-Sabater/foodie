@@ -3,7 +3,7 @@ from random import random
 import requests
 import json
 from flask import Flask, render_template,request,redirect,url_for, session
-from .config import settings
+from config import settings
 
 
 #set FLASK_ENV=development
@@ -98,6 +98,6 @@ def random_meal():
 
 
 
-if __name__ == "__main__":
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=3000)
+# if __name__ == "__main__":
+#     from waitress import serve
+#     serve(app, host="0.0.0.0", port=3000)
