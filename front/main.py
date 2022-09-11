@@ -3,7 +3,7 @@ from random import random
 import requests
 import json
 from flask import Flask, render_template,request,redirect,url_for, session
-from config import settings
+from .config import settings
 
 
 #set FLASK_ENV=development
