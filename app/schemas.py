@@ -1,6 +1,7 @@
+"""Main schema module"""
 from typing import Optional
-from pydantic import BaseModel, PositiveInt, EmailStr, conint 
-from datetime import datetime, date
+from pydantic import BaseModel, EmailStr
+from datetime import datetime
 
 
 class UserCreate(BaseModel):

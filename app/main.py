@@ -1,15 +1,16 @@
+""" Main module for the application"""
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from .routers import meal, auth, user
 from . import models
 from .database import engine
-from fastapi.templating import Jinja2Templates
-from fastapi.middleware.cors import CORSMiddleware
+
 
 models.Base.metadata.create_all(bind=engine)
 
-app=FastAPI()
+app = FastAPI()
 
-origins=["*"]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -25,17 +26,9 @@ app.include_router(user.router)
 
 
 @app.get("/")
-async def root():
-    return {"message" : "Hello World"}
+async def root() -> dict:
+    """Check main health of website"""
+    return {"message": "Hello World"}
 
 # if __name__=='__main__':
 #     uvicorn.run(app)
-# #Todo
-"""
-Add a column for amount of registered posts
-be able to query for all meals of a specific user
-See all users
-Add alembic
-Add jinja2 templates /frontend
-add separate flask frontend folder that calls our APIs
-"""

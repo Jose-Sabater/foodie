@@ -7,5 +7,5 @@ workspace.code-workspace
 /other
 /food_database
 __pycache__
-roadmap.txt
+info.txt
 .gitignore
