@@ -65,6 +65,11 @@ Random recipe suggestions:
 
 - [ ] Analytics
 
+## Other
+The idea is to conect the app through a computer vision module to support just uploading an image and recieving the amount of calories as a result.
+A protype of this is available at my other repo: https://github.com/ertotis/Yolov5-food-detection
+
+
 ## License
 
 The rights to this project are owned by Jose Sabater
