@@ -36,11 +36,11 @@ Database: SQL
 
 ## Front End
 Built with Flask, the idea is to create a simple front end to visualize the results of the back end.
-![plot](./assets/login.JPG)  
+![plot](./assets/login.jpg)  
 
 Combines some javascript, html and CSS.
 Main Screen with summary of previous meals
-![plot](./assets/main_screen.JPG)  
+![plot](./assets/main_screen.jpg)  
 
 Random recipe suggestions:  
 ![plot](./assets/random_recipe.JPG)  
