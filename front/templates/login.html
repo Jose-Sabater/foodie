@@ -1,144 +1,148 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="{{url_for('static', filename='header.css') }}">
-    <link rel="stylesheet" href="{{url_for('static', filename='general.css') }}">
-    <link rel="stylesheet" href="{{url_for('static', filename='meal.css') }}">
-    <link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
-    <title>Login Page</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="left-section">
-        <img class="hamburger-menu" src="/static/icons/hamburger-menu.svg">
-        <img class="foodie-logo" src="/static/images/foodie.svg">
-      </div>
-      <div class="middle-section">
-        <input class="search-bar" type="text" placeholder="Search for your meals">
-        <button class="search-button">
-          <img class="search-icon" src="/static/icons/search.svg">
-          <div class="tooltip">Search</div>
-        </button>
-        <!-- Put position absolute inside position relative -->
-        <button class="voice-search-button">
-          <img class="voice-search-icon" src="/static/icons/voice-search-icon.svg">
-          <div class="tooltip">Search with your voice</div>
-        </button>
-      </div>
-      <div class="right-section">
-        <div> <p id="uname">username </p>
 
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="{{url_for('static', filename='header.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='general.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='meal.css') }}">
+  <link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
+  <title>Login Page</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="left-section">
+      <img class="hamburger-menu" src="/static/icons/hamburger-menu.svg">
+      <img class="foodie-logo" src="/static/images/foodie.svg">
+    </div>
+    <div class="middle-section">
+      <input class="search-bar" type="text" placeholder="Search for your meals">
+      <button class="search-button">
+        <img class="search-icon" src="/static/icons/search.svg">
+        <div class="tooltip">Search</div>
+      </button>
+      <!-- Put position absolute inside position relative -->
+      <button class="voice-search-button">
+        <img class="voice-search-icon" src="/static/icons/voice-search-icon.svg">
+        <div class="tooltip">Search with your voice</div>
+      </button>
+    </div>
+    <div class="right-section">
+      <div>
+        <p id="uname">username </p>
+
+      </div>
+
+      <img class="current-user-picture" src="/static/images/jose_maria.jpg">
+    </div>
+  </header>
+
+  <main>
+
+    <section class="user-summary-section">
+
+      <div class="meals-top-selection-menu">
+        <div class="selection-menu-option">
+          <form id="meal-form" method="POST" name="meal-form">
+            <input type="hidden" name="meal-token">
+            <button class="option-button" type="button" onclick="submit('meal')" Post!> Your Meal </button>
+          </form>
         </div>
 
-        <img class="current-user-picture" src="/static/images/jose_maria.jpg">
+        <div class="selection-menu-option">
+          <form id="meal-form" method="POST" name="meal-form">
+            <input type="hidden" name="meal-token">
+            <button class="option-button" type="button" onclick="submit('meal')" Post!> Stats </button>
+          </form>
+        </div>
+
+        <div class="selection-menu-option">
+          <form id="meal-form" method="POST" name="meal-form">
+            <input type="hidden" name="meal-token">
+            <button class="option-button" type="button" onclick="submit('meal')" Post!> Recipes </button>
+          </form>
+        </div>
+
       </div>
-    </header>
-
-    <main>
-
-      <section class="user-summary-section"> 
-        
-        <div class="meals-top-selection-menu" >
-          <div class="selection-menu-option">
-            <form id="meal-form" method="POST" name="meal-form" >
-              <input type="hidden" name="meal-token">
-              <button class="option-button" type="button" onclick="submit('meal')" Post!> Your Meal </button>
-            </form>
-          </div>
-
-          <div class="selection-menu-option">
-            <form id="meal-form" method="POST" name="meal-form" >
-              <input type="hidden" name="meal-token">
-              <button class="option-button" type="button" onclick="submit('meal')" Post!> Stats </button>
-            </form>
-          </div>
-
-          <div class="selection-menu-option">
-            <form id="meal-form" method="POST" name="meal-form" >
-              <input type="hidden" name="meal-token">
-              <button class="option-button" type="button" onclick="submit('meal')" Post!> Recipes </button>
-            </form>
-          </div>
-        
-        </div>
-        <div class="meals-top-sentence">Your latest meals</div>
-        <div class="meals-grid">
-          <div class="meal-card">
-            <div class="thumbnail-row">
-              <button class="thumbnail-button" onclick ="submit()">
-                <image class="meal-thumbnail" src="/static/images/strawberries.jpg" />
-              </button>
-              <div class="text-block">
-                <h4>{{meal1.meal}}</h4>
-                <p>{{meal1.calories_consumed}} calories</p>
-              </div>
+      <div class="meals-top-sentence">Your latest meals</div>
+      <div class="meals-grid">
+        <div class="meal-card">
+          <div class="thumbnail-row">
+            <button class="thumbnail-button" onclick="submit()">
+              <image class="meal-thumbnail" src="/static/images/strawberries.jpg" />
+            </button>
+            <div class="text-block">
+              <h4>{{meal1.meal}}</h4>
+              <p>{{meal1.calories_consumed}} calories</p>
             </div>
           </div>
-
-          <div class="meal-card">
-            <div class="thumbnail-row">
-              <button class="thumbnail-button" onclick ="submit()">
-                <image class="meal-thumbnail" src="/static/images/hamburger.jpg" />
-              </button>
-              <div class="text-block">
-                <h4>{{meal2.meal}}</h4>
-                <p>{{meal2.calories_consumed}} calories</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="meal-card">
-            <div class="thumbnail-row">
-              <button class="thumbnail-button" onclick ="submit()">
-                <image class="meal-thumbnail" src="/static/images/t-bone-steak.jpg" />
-              </button>
-              <div class="text-block">
-                <h4>{{meal3.meal}}</h4>
-                <p>{{meal3.calories_consumed}} calories</p>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-      </section>
-      <section class="random-recipe-section">
-        <div class="recipe-text">Random Recipe of the week</div>
-        <div class="recipe-image-row">
-          <button class="recipe-button" onclick ="go_random_recipe()">
-            <image id="recipe-thumbnail" class="recipe-thumbnail" src="/static/images/fondue.jpg" />
+        <div class="meal-card">
+          <div class="thumbnail-row">
+            <button class="thumbnail-button" onclick="submit()">
+              <image class="meal-thumbnail" src="/static/images/hamburger.jpg" />
+            </button>
+            <div class="text-block">
+              <h4>{{meal2.meal}}</h4>
+              <p>{{meal2.calories_consumed}} calories</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="meal-card">
+          <div class="thumbnail-row">
+            <button class="thumbnail-button" onclick="submit()">
+              <image class="meal-thumbnail" src="/static/images/t-bone-steak.jpg" />
+            </button>
+            <div class="text-block">
+              <h4>{{meal3.meal}}</h4>
+              <p>{{meal3.calories_consumed}} calories</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <section class="random-recipe-section">
+      <div class="recipe-text">Random Recipe of the week</div>
+      <div class="recipe-image-row">
+        <button class="recipe-button" onclick="go_random_recipe()">
+          <image id="recipe-thumbnail" class="recipe-thumbnail" src="/static/images/fondue.jpg" />
           <div class="recipe-text-block">
             <h4>{{meal3.meal}}</h4>
             <p>{{meal3.calories_consumed}} calories</p>
           </div>
-          </button> 
+        </button>
 
-        </div>
-      </section>
+      </div>
+    </section>
 
-    </main>
+  </main>
 
-    <script type="text/javascript">
-      localStorage.setItem("token", "{{token}}");
-    </script>
-    <script src="/static/js/utils.js"></script>
-    <script>
-          document.getElementById('recipe-thumbnail').textContent = "Recipe Title " + username;      
-    </script>
-    <script type="text/javascript">
-      
-      function submit_form(category){
-        // token=get_token();
-        // alert(token);
-        document.getElementById(category+"-token").value = token;
-        document.getElementById(category+"-form").submit();
-      }
-    </script>
-    <script>
-      showmessage("uname", username)
-    </script>
-    
-  </body>
+  <script type="text/javascript">
+    localStorage.setItem("token", "{{token}}");
+  </script>
+  <script src="/static/js/utils.js"></script>
+  <script>
+    document.getElementById('recipe-thumbnail').textContent = "Recipe Title " + username;      
+  </script>
+  <script type="text/javascript">
+
+    function submit_form(category) {
+      // token=get_token();
+      // alert(token);
+      document.getElementById(category + "-token").value = token;
+      document.getElementById(category + "-form").submit();
+    }
+  </script>
+  <script>
+    showmessage("uname", username)
+  </script>
+
+</body>
+
 </html>

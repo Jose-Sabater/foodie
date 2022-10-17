@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{{url_for('static', filename='header.css')}}">
+    <title>First_login</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="left-section">
+            <img class="hamburger-menu" src="/static/icons/hamburger-menu.svg">
+            <img class="foodie-logo" src="/static/images/foodie.svg">
+        </div>
+        <div class="middle-section">
+            <input class="search-bar" type="text" placeholder="Search for your meals">
+            <button class="search-button">
+                <img class="search-icon" src="/static/icons/search.svg">
+                <div class="tooltip">Search</div>
+            </button>
+            <!-- Put position absolute inside position relative -->
+            <button class="voice-search-button">
+                <img class="voice-search-icon" src="/static/icons/voice-search-icon.svg">
+                <div class="tooltip">Search with your voice</div>
+            </button>
+        </div>
+        <div class="right-section">
+            <div>
+                <p id="uname">username </p>
+            </div>
+            <img class="current-user-picture" src="/static/images/jose_maria.jpg">
+        </div>
+    </header>
+
+    <h1>Add your first meal</h1>
+    <script type="text/javascript">
+        localStorage.setItem("token", "{{token}}");
+    </script>
+    <script src="/static/js/utils.js"></script>
+
+</body>
+
+</html>

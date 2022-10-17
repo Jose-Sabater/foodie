@@ -1,119 +1,134 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{{url_for('static', filename='welcome.css') }}">
-<link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
-<link rel="icon" type="image/x-icon" href="/static/icons/favicon.ico">
-<script type="text/javascript">
-  function store_userinfo(){
-    localStorage.setItem("uname", document.getElementById("login-uname").value);
-    localStorage.setItem("psw", document.getElementById("login-psw").value);
-    document.getElementById("login-form").submit();}
-  // STORE TOKEN INTO LOCALSTORAGE
-  
-</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{url_for('static', filename='welcome.css') }}">
+  <link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
+  <link rel="icon" type="image/x-icon" href="/static/icons/favicon.ico">
 </head>
+
 <body>
-    <div id="header">
-        <img id="banana" src="/static/images/foodie.svg"> 
-        <button id="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-        <button id="register" onclick="document.getElementById('id02').style.display='block'"style="width:auto;">Sign Up</button>
-    </div>
+  <div id="header">
+    <img id="banana" src="/static/images/foodie.svg">
+    <button id="login" onclick="document.getElementById('id01').style.display='block'"
+      style="width:auto;">Login</button>
+    <button id="register" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign
+      Up</button>
+  </div>
 
 
-    <div class="welcomepage-intro">
+  <div class="welcomepage-intro">
     <!-- <h2>Welcome to Foodie!</h2> -->
-    </div>
+  </div>
 
-    
 
-    <div id="id01" class="modal">
-    
+
+  <div id="id01" class="modal">
+
     <form class="modal-content animate" method="post" id="login-form" name="login-form">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="/static/images/strong.png" alt="Avatar" class="avatar">
-        </div> 
-
-        <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" id="login-uname" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" id="login-psw" required>
-            
-          <button type="submit" onclick="store_userinfo()">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-    </form>
-    </div>
-
-
-    <div id="id02" class="modal">
-        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content" action="/action_page.php" method="post">
-          <div class="container">
-            <h1>Sign Up</h1>
-            <p>Please fill in this form to create an account.</p>
-            <hr>
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
-      
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-      
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-            <label for="surname"><b>Surname</b></label>
-            <input type="text" placeholder="Surname" name="Surname" >
-
-            <label for="last-name"><b>Last Name</b></label>
-            <input type="text" placeholder="Last Name" name="last-name" >
-
-            <label>
-              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-            </label>
-      
-            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-      
-            <div class="clearfix">
-              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-              <button type="submit" class="signup">Sign Up</button>
-            </div>
-          </div>
-        </form>
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+          title="Close Modal">&times;</span>
+        <img src="/static/images/strong.png" alt="Avatar" class="avatar">
       </div>
-    
 
-<script>
-let modal1 = document.getElementById('id01');
-window.onclick = function(event) {
-    if (event.target == modal1) {
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" id="login-uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="login-psw" required>
+
+        <button type="submit" onclick="store_userinfo()">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+          class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
+
+
+  <div id="id02" class="modal">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close"
+      title="Close Modal">&times;</span>
+    <form class="modal-content" method="post" id="register-form" name="register-form">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" id="register-uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="register-psw" required>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+        <label for="surname"><b>Surname</b></label>
+        <input type="text" placeholder="Surname" name="Surname">
+
+        <label for="last-name"><b>Last Name</b></label>
+        <input type="text" placeholder="Last Name" name="last-name">
+
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+        <div class="clearfix">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'"
+            class="cancelbtn">Cancel</button>
+          <button type="submit" onclick="submit_new_user()" class="signup">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    function store_userinfo() {
+      localStorage.setItem("uname", document.getElementById("login-uname").value);
+      localStorage.setItem("psw", document.getElementById("login-psw").value);
+      document.getElementById("login-form").submit();
+    }
+  </script>
+
+  <script type="text/javascript">
+    function submit_new_user() {
+      localStorage.setItem("uname", document.getElementById("register-uname").value);
+      localStorage.setItem("psw", document.getElementById("register-psw").value);
+      document.getElementById("register-form").submit();
+    }
+  </script>
+
+  <script>
+    let modal1 = document.getElementById('id01');
+    window.onclick = function (event) {
+      if (event.target == modal1) {
         modal1.style.display = "none";
+      }
     }
-}
-</script>
+  </script>
 
-<script>
-// Get the modal
-let modal2 = document.getElementById('id02');
-// When the user clicks anywhere outside of the modal, close it
-
-window.onclick = function(event) {
-    if (event.target == modal2) {
+  <script>
+    // Get the modal
+    let modal2 = document.getElementById('id02');
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal2) {
         modal2.style.display = "none";
+      }
     }
-}
-</script>
+  </script>
 
 </body>
+
 </html>
